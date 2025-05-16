@@ -38,7 +38,7 @@ house-hunter/
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/ваш-username/house-hunter.git
+git clone https://github.com/Lanrouuu/house-hunter.git
 ```
 
 2. Откройте файл `House_Hunter.html` в вашем браузере или используйте локальный сервер.
@@ -49,9 +49,8 @@ MIT License
 
 ## Автор
 
-[Ваше имя]
+Lanrouuu
 
 ## Контакты
 
-- Email: [ваш-email]
-- GitHub: [ваш-профиль-github] 
+- GitHub: [Lanrouuu](https://github.com/Lanrouuu) 
