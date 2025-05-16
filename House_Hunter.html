@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House_Hunter</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <svg class="house-icon" width="45" height="45" viewBox="0 0 45 45" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M8 38V18L22.5 8L37 18V38H8Z"/>
+                    <path d="M4 19L22.5 5L41 19"/>
+                    <path d="M31 14V8"/>
+                    <rect x="19" y="26" width="7" height="12"/>
+                </svg>
+                House Hunter
+            </div>
+            <button class="burger-menu" id="burgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="House_Hunter.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="properties.html">Недвижимость</a>
+                <a href="about.html">О нас</a>
+                <a href="contact.html">Контакты</a>
+            </div>
+        </nav>
+        <div class="header-content">
+            <h1>Откройте дверь в новую жизнь</h1>
+        </div>
+        <button id="scrollTop" title="Наверх">&#8679;</button>
+    </header>
+    <main>
+        <section class="offers-section">
+            <div class="container">
+                <h2 class="section-title">Лучшие предложения</h2>
+                <p class="section-description">Эксклюзивная подборка премиальной недвижимости</p>
+                <div class="offers-grid" id="offersGrid">
+                    <p>Загрузка...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="reviews">
+            <h2 class="reviews-title">Отзывы клиентов</h2>
+            <p class="reviews-sub">Что говорят наши довольные клиенты</p>
+            <div class="slider-container">
+                <div class="slider-arrow left" onclick="moveSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slides">
+                    <div class="slide active">
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Сайт помог найти дом мечты всего за неделю. Удобный поиск, приятный интерфейс и отличная поддержка!</p>
+                            <div class="author">
+                                <img src="./images/c91ae1381149337f0ab3a3d9bc0a1068.jpg" alt="Екатерина">
+                                <div class="author-info">
+                                    <h4>Екатерина Лебедева</h4>
+                                    <span>Москва</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Спасибо команде! Быстро подобрали квартиру по всем требованиям. Очень довольны сервисом.</p>
+                            <div class="author">
+                                <img src="./images/96e8e5b84cc7068c1ff46f68cdc278a1.jpg" alt="Андрей">
+                                <div class="author-info">
+                                    <h4>Андрей Ковалёв</h4>
+                                    <span>Санкт-Петербург</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Отличная платформа! Удалось продать квартиру без посредников. Всё просто и понятно.</p>
+                            <div class="author">
+                                <img src="./images/56f50cf0adf2205eb0033cce46693911.jpg" alt="Марина">
+                                <div class="author-info">
+                                    <h4>Марина Васильева</h4>
+                                    <span>Казань</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Пользуюсь уже второй раз — сначала покупал, теперь сдаю. Всё на высоте!</p>
+                            <div class="author">
+                                <img src="./images/4097704b40ea61e7c36564859cd5dfb4.jpg" alt="Илья">
+                                <div class="author-info">
+                                    <h4>Илья Смирнов</h4>
+                                    <span>Екатеринбург</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Очень удобно, что есть фильтры по районам и цене. Нашли идеальную квартиру для семьи с детьми.</p>
+                            <div class="author">
+                                <img src="./images/8cdec6e224b6ef6a76d5d1eb23df8007.jpg" alt="Оксана">
+                                <div class="author-info">
+                                    <h4>Оксана Григорьева</h4>
+                                    <span>Новосибирск</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Советую друзьям и знакомым! Без скрытых платежей, всё честно и прозрачно.</p>
+                            <div class="author">
+                                <img src="./images/6490bb9d9f51b287007095bf31fc0b9b.jpg" alt="Владимир">
+                                <div class="author-info">
+                                    <h4>Владимир Захаров</h4>
+                                    <span>Ростов-на-Дону</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Удивлён качеством сервиса! Нашёл жильё в новом городе за пару дней.</p>
+                            <div class="author">
+                                <img src="./images/1b026ba7395e9d5eef19eafcdf90df51.jpg" alt="Денис">
+                                <div class="author-info">
+                                    <h4>Денис Орлов</h4>
+                                    <span>Нижний Новгород</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Прекрасный выбор объектов, актуальные фотографии и описание. Супер!</p>
+                            <div class="author">
+                                <img src="./images/a5282b956178fe69b6a554da12c9c7c4.jpg" alt="Анна">
+                                <div class="author-info">
+                                    <h4>Анна Михайлова</h4>
+                                    <span>Челябинск</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p>Всё интуитивно и просто. Нашёл квартиру, связался с владельцем и переехал за 3 дня!</p>
+                            <div class="author">
+                                <img src="./images/c76525a93d42dc77cc0cb00b5e464755.jpg" alt="Роман">
+                                <div class="author-info">
+                                    <h4>Роман Титов</h4>
+                                    <span>Самара</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-arrow right" onclick="moveSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <div class="logo">House Hunter</div>
+                        <p>Ваш надежный партнер в поиске недвижимости с 2010 года</p>
+                    </div>
+                    <div class="footer-contacts">
+                        <h3>Контакты</h3>
+                        <p>+7 (123) 456-78-90</p>
+                        <p>info@househunter.ru</p>
+                        <p>Москва, ул. Примерная, 15</p>
+                    </div>
+                    <div class="footer-social">
+                        <h3>Мы в соцсетях</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <svg class="icon-youtube" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="icon-telegram" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="icon-instagram" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© 2025 House Hunter. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Бургер-меню
+        document.getElementById('burgerBtn').addEventListener('click', () => {
+            ['.nav-links', '#burgerBtn'].forEach(s => document.querySelector(s).classList.toggle('active'));
+        });
+        document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+            ['.nav-links', '#burgerBtn'].forEach(s => document.querySelector(s).classList.remove('active'));
+        }));
+
+        // Слайдер
+        let slideIndex = 1;
+        const showSlides = n => {
+            const slides = document.getElementsByClassName('slide'), dots = document.getElementsByClassName('dot');
+            slideIndex = n > slides.length ? 1 : n < 1 ? slides.length : n;
+            for (let s of slides) s.classList.remove('active');
+            for (let d of dots) d.classList.remove('active');
+            slides[slideIndex-1].classList.add('active');
+            dots[slideIndex-1].classList.add('active');
+            document.querySelector('.slides').style.transform = `translateX(-${(slideIndex-1)*100}%)`;
+        };
+        const moveSlide = n => showSlides(slideIndex += n);
+        const currentSlide = n => showSlides(slideIndex = n);
+        showSlides(1);
+        setInterval(() => moveSlide(1), 5000);
+
+        // Подгрузка карточек
+        const grid = document.getElementById('offersGrid');
+        fetch('./offers.json')
+            .then(res => res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}: offers.json не найден`))
+            .then(data => grid.innerHTML = data.offers.map((o, i) => `
+                <div class="offer-card" style="animation-delay: ${0.2 + i * 0.1}s">
+                    <div class="offer-image">
+                        <img src="${o.image}" alt="${o.title}">
+                        ${o.badge ? `<div class="offer-badge">${o.badge}</div>` : ''}
+                    </div>
+                    <div class="offer-content">
+                        <h3>${o.title}</h3>
+                        <ul class="offer-features">${o.features.map(f => `<li>${f}</li>`).join('')}</ul>
+                        <div class="offer-price">${o.price}</div>
+                        <a class="offer-button" href="${o.link}">Подробнее</a>
+                    </div>
+                </div>
+            `).join(''))
+            .catch(e => {
+                console.error(e);
+                grid.innerHTML = '<p>Ошибка загрузки данных. Убедитесь, что offers.json существует и вы используете локальный сервер.</p>';
+            });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

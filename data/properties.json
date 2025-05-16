@@ -1,0 +1,70 @@
+{
+  "premium_properties": [
+    {
+      "id": 1,
+      "title": "Роскошный пентхаус в центре города",
+      "price": 45000000,
+      "location": "Центральный район",
+      "area": 250,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "features": [
+        "Панорамные окна",
+        "Терраса на крыше",
+        "Подземный паркинг",
+        "Консьерж-сервис"
+      ],
+      "images": [
+        "images/penthouse1.jpg",
+        "images/penthouse2.jpg",
+        "images/penthouse3.jpg"
+      ],
+      "type": "Пентхаус",
+      "status": "Продажа"
+    },
+    {
+      "id": 2,
+      "title": "Вилла с бассейном",
+      "price": 75000000,
+      "location": "Загородный комплекс",
+      "area": 450,
+      "bedrooms": 6,
+      "bathrooms": 4,
+      "features": [
+        "Бассейн",
+        "Сад",
+        "Гараж на 3 машины",
+        "Система умный дом"
+      ],
+      "images": [
+        "images/villa1.jpg",
+        "images/villa2.jpg",
+        "images/villa3.jpg"
+      ],
+      "type": "Вилла",
+      "status": "Продажа"
+    },
+    {
+      "id": 3,
+      "title": "Апартаменты премиум-класса",
+      "price": 35000000,
+      "location": "Деловой квартал",
+      "area": 180,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "features": [
+        "Дизайнерский ремонт",
+        "Охраняемая территория",
+        "Фитнес-центр",
+        "Спа-зона"
+      ],
+      "images": [
+        "images/apartment1.jpg",
+        "images/apartment2.jpg",
+        "images/apartment3.jpg"
+      ],
+      "type": "Апартаменты",
+      "status": "Продажа"
+    }
+  ]
+} 

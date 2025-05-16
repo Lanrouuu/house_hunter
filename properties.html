@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style_properties.css">
+    <link rel="stylesheet" href="custom-button.css">
+    <link rel="stylesheet" href="scroll-button.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Недвижимость - House Hunter</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <svg class="house-icon" width="45" height="45" viewBox="0 0 45 45" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M8 38V18L22.5 8L37 18V38H8Z"/>
+                    <path d="M4 19L22.5 5L41 19"/>
+                    <path d="M31 14V8"/>
+                    <rect x="19" y="26" width="7" height="12"/>
+                </svg>
+                House Hunter
+            </div>
+            <button class="burger-menu" id="burgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="House_Hunter.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="properties.html">Недвижимость</a>
+                <a href="about.html">О нас</a>
+                <a href="contact.html">Контакты</a>
+            </div>
+        </nav>
+        <div class="header-content">
+            <h1>Найдите идеальную недвижимость</h1>
+            <p>Ознакомьтесь с нашей подборкой эксклюзивных объектов</p>
+        </div>
+        <button id="scrollTop" title="Наверх">&#8679;</button>
+    </header>
+
+    <main>
+        <section class="properties-section">
+            <div class="container">
+                <h2 class="section-title">Доступная недвижимость</h2>
+                <p class="section-description">Выберите объект, который подходит именно вам</p>
+
+                <div class="properties-grid">
+                    <!-- Объект 1 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/24892afa9ad9501d2863291e3d291475.jpg" alt="Элитный пентхаус">
+                            <div class="property-badge">Новое</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Элитный пентхаус</h3>
+                            <ul class="property-features">
+                                <li>Просторная гостиная 45 м²</li>
+                                <li>Дизайнерский ремонт</li>
+                                <li>Умный дом</li>
+                                <li>Панорамные окна</li>
+                            </ul>
+                            <div class="property-price">₽25,000,000</div>
+                            <a href="contact.html?property=Элитный пентхаус" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 2 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/d228dc272e8d700e0829a21eb5e0f3e2.jpg" alt="Загородная вилла">
+                            <div class="property-badge">Хит</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Загородная вилла</h3>
+                            <ul class="property-features">
+                                <li>Просторная гостиная 60 м²</li>
+                                <li>Diзайнерский ремонт</li>
+                                <li>Умный дом</li>
+                                <li>Собственный сад</li>
+                            </ul>
+                            <div class="property-price">₽18,500,000</div>
+                            <a href="contact.html?property=Загородная вилла" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 3 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/78f6be4506d918660c31aa0098ec5928.jpg" alt="Лофт в центре">
+                        </div>
+                        <div class="property-content">
+                            <h3>Лофт в центре</h3>
+                            <ul class="property-features">
+                                <li>Просторная гостиная 35 м²</li>
+                                <li>Дизайнерский ремонт</li>
+                                <li>Умный дом</li>
+                                <li>Высокие потолки 4 м</li>
+                            </ul>
+                            <div class="property-price">₽32,000,000</div>
+                            <a href="contact.html?property=Лофт в центре" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 4 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/semeynaya_kv.jpg" alt="Семейная квартира в зеленом районе">
+                            <div class="property-badge">Семейный выбор</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Семейная квартира в зеленом районе</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 75 м²</li>
+                                <li>Три спальни</li>
+                                <li>Закрытый двор с детской площадкой</li>
+                                <li>Рядом парк и школа</li>
+                            </ul>
+                            <div class="property-price">₽16,500,000</div>
+                            <a href="contact.html?property=Семейная квартира в зеленом районе" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 5 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/kotteg.jpg" alt="Коттедж у озера">
+                            <div class="property-badge">Скидка</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Коттедж у озера</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 110 м²</li>
+                                <li>Участок: 8 соток</li>
+                                <li>Баня на территории</li>
+                                <li>Живописный вид на озеро</li>
+                            </ul>
+                            <div class="property-price">₽14,000,000</div>
+                            <a href="contact.html?property=Коттедж у озера" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 6 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/appartamenti.jpg" alt="Апартаменты в небоскребе">
+                            <div class="property-badge">Премиум</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Апартаменты в небоскребе</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 45 м²</li>
+                                <li>Панорамный вид с 20-го этажа</li>
+                                <li>Консьерж-сервис</li>
+                                <li>Фитнес-зал в здании</li>
+                            </ul>
+                            <div class="property-price">₽12,000,000</div>
+                            <a href="contact.html?property=Апартаменты в небоскребе" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 7 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/tanxaus.jpg" alt="Таунхаус в пригороде">
+                            <div class="property-badge">Новинка</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Таунхаус в пригороде</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 85 м²</li>
+                                <li>Собственный гараж</li>
+                                <li>Закрытая территория</li>
+                                <li>Рядом ТЦ и школа</li>
+                            </ul>
+                            <div class="property-price">₽13,800,000</div>
+                            <a href="contact.html?property=Таунхаус в пригороде" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 8 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/studia.jpg" alt="Студия с террасой">
+                            <div class="property-badge">Компакт</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Студия с террасой</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 30 м²</li>
+                                <li>Открытая терраса 8 м²</li>
+                                <li>Современный ремонт</li>
+                                <li>Близость к метро</li>
+                            </ul>
+                            <div class="property-price">₽9,200,000</div>
+                            <a href="contact.html?property=Студия с террасой" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 9 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/dom_v_skandin.jpg" alt="Дом в скандинавском стиле">
+                            <div class="property-badge">Эко</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Дом в скандинавском стиле</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 100 м²</li>
+                                <li>Участок: 6 соток</li>
+                                <li>Светлый интерьер</li>
+                                <li>Энергоэффективные технологии</li>
+                            </ul>
+                            <div class="property-price">₽15,500,000</div>
+                            <a href="contact.html?property=Дом в скандинавском стиле" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 10 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/kvartira_v_art-kv.jpg" alt="Квартира в арт-квартале">
+                            <div class="property-badge">Арт</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Квартира в арт-квартале</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 50 м²</li>
+                                <li>Креативный дизайн</li>
+                                <li>Рядом галереи и кафе</li>
+                                <li>Закрытый двор</li>
+                            </ul>
+                            <div class="property-price">₽11,500,000</div>
+                            <a href="contact.html?property=Квартира в арт-квартале" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 11 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/dvuxurovnevaya_kv.jpg" alt="Двухуровневая квартира">
+                            <div class="property-badge">Новое</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Двухуровневая квартира</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 90 м²</li>
+                                <li>Два уровня с лестницей</li>
+                                <li>Просторная кухня-гостиная</li>
+                                <li>Балкон с видом на парк</li>
+                            </ul>
+                            <div class="property-price">₽18,000,000</div>
+                            <a href="contact.html?property=Двухуровневая квартира" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 12 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/usadba_v_bass.jpg" alt="Усадьба с бассейном">
+                            <div class="property-badge">Эксклюзив</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Усадьба с бассейном</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 160 м²</li>
+                                <li>Участок: 12 соток</li>
+                                <li>Бассейн и зона барбекю</li>
+                                <li>Экологически чистый район</li>
+                            </ul>
+                            <div class="property-price">₽23,000,000</div>
+                            <a href="contact.html?property=Усадьба с бассейном" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 13 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/studia_v_eko.jpg" alt="Студия в эко-комплексе">
+                            <div class="property-badge">Компакт</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Студия в эко-комплексе</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 28 м²</li>
+                                <li>Современный ремонт</li>
+                                <li>Зеленый двор</li>
+                                <li>Рядом метро и магазины</li>
+                            </ul>
+                            <div class="property-price">₽8,800,000</div>
+                            <a href="contact.html?property=Студия в эко-комплексе" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 14 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/loft_c_panoram.jpg" alt="Лофт с панорамными окнами">
+                            <div class="property-badge">Стиль</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Лофт с панорамными окнами</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 55 м²</li>
+                                <li>Высокие потолки: 4 м</li>
+                                <li>Открытая планировка</li>
+                                <li>Рядом культурные центры</li>
+                            </ul>
+                            <div class="property-price">₽13,200,000</div>
+                            <a href="contact.html?property=Лофт с панорамными окнами" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                
+                    <!-- Объект 15 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="images/villa_s_vidom_na_les.jpg" alt="Вилла с видом на лес">
+                            <div class="property-badge">Люкс</div>
+                        </div>
+                        <div class="property-content">
+                            <h3>Вилла с видом на лес</h3>
+                            <ul class="property-features">
+                                <li>Площадь: 180 м²</li>
+                                <li>Участок: 10 соток</li>
+                                <li>Камин и терраса</li>
+                                <li>Тишина и природа</li>
+                            </ul>
+                            <div class="property-price">₽26,000,000</div>
+                            <a href="contact.html?property=Вилла с видом на лес" class="property-button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html" class="custom-button">Связаться с нами</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bottom">
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="logo">House Hunter</div>
+                <p>Ваш надежный партнер в поиске недвижимости с 2010 года</p>
+            </div>
+            <div class="footer-contacts">
+                <h3>Контакты</h3>
+                <p>+7 (123) 456-78-90</p>
+                <p>info@househunter.ru</p>
+                <p>Москва, ул. Примерная, 15</p>
+            </div>
+            <div class="footer-social">
+                <h3>Мы в соцсетях</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 House Hunter. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="scroll-top" id="scrollTop" title="Наверх">⇧</a>
+
+    <script>
+        // Burger Menu Functionality
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navLinks = document.querySelector('.nav-links');
+        burgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burgerBtn.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                burgerBtn.classList.remove('active');
+            });
+        });
+
+        // Показ/скрытие кнопки прокрутки наверх
+        window.addEventListener('scroll', () => {
+            const scrollTopBtn = document.getElementById('scrollTop');
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.transform = 'translateY(0)';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    scrollTopBtn.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Прокрутка наверх при клике
+        document.getElementById('scrollTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
