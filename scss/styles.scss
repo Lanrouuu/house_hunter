@@ -1,0 +1,791 @@
+// Импорт шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap');
+
+// Переменные
+$primary-color: #FFD700;
+$text-color: #2c3e50;
+$secondary-text-color: #7f8c8d;
+$white: #ffffff;
+$black: #000000;
+$success-color: #2fe935;
+
+// Миксины
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property: all) {
+  transition: $property 0.3s ease;
+}
+
+// Базовые стили
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+// Стили навигации
+navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba($black, 0.6);
+  padding: 20px 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  logo {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: $white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include transition;
+    transform-origin: left center;
+
+    &:hover {
+      color: $primary-color;
+      transform: scale(1.05);
+
+      .house-icon {
+        color: $primary-color;
+        transform: rotate(-10deg);
+      }
+    }
+  }
+
+  .house-icon {
+    width: 45px;
+    height: 45px;
+    color: $white;
+    @include transition;
+    transform-origin: center;
+  }
+}
+
+// Стили навигационных ссылок
+.nav-links {
+  display: flex;
+  gap: 30px;
+
+  a {
+    color: $white;
+    text-decoration: none;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeInLink 0.5s ease forwards;
+    position: relative;
+    padding-bottom: 5px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $primary-color;
+      @include transition(width);
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $primary-color;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.active {
+      color: $primary-color;
+      font-weight: bold;
+
+      &::after {
+        width: 100%;
+        background-color: $primary-color;
+      }
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}
+
+// Анимация появления ссылок
+@keyframes fadeInLink {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Стили бургер-меню
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+  position: relative;
+
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: $primary-color;
+    border-radius: 3px;
+    @include transition;
+    transform-origin: center;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+
+  &:hover span {
+    background-color: $white;
+  }
+}
+
+// Стили шапки
+header {
+  background-image: url('images/1627098886_11-kartinkin-com-p-agentstvo-nedvizhimosti-fon-krasivo-11.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 920px;
+  color: $white;
+  position: relative;
+  overflow: hidden;
+
+  .header-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInHeader 1s ease forwards 0.5s;
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: $primary-color;
+      text-shadow: 2px 2px 4px rgba($black, 0.5);
+      letter-spacing: 1.5px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      line-height: 1.6;
+      color: $success-color;
+      text-shadow: 1px 1px 2px rgba($black, 0.4);
+    }
+  }
+}
+
+@keyframes fadeInHeader {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Стили секции предложений
+.offers-section {
+  padding: 80px 0;
+  background-color: #F1EAEA;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: $text-color;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-description {
+  color: $secondary-text-color;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+}
+
+// Стили сетки предложений
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+// Стили карточек предложений
+.offer-card {
+  background: linear-gradient(to bottom, $white, #f8f9fa);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba($black, 0.1);
+  @include transition;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInCard 0.5s ease forwards;
+  border: 1px solid rgba($black, 0.05);
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba($black, 0.15);
+  }
+
+  .offer-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include transition;
+    }
+  }
+
+  &:hover .offer-image img {
+    transform: scale(1.1);
+  }
+
+  .offer-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba($primary-color, 0.9);
+    color: $text-color;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .offer-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h3 {
+      font-size: 1.5rem;
+      color: $text-color;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+  }
+
+  .offer-features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: $secondary-text-color;
+      font-size: 0.9rem;
+      position: relative;
+      padding-right: 15px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        background-color: $primary-color;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .offer-price {
+    font-size: 1.8rem;
+    color: $text-color;
+    font-weight: bold;
+    margin-top: auto;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $primary-color;
+      @include transition;
+    }
+  }
+
+  &:hover .offer-price::after {
+    width: 100%;
+  }
+
+  .offer-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: $primary-color;
+    color: $text-color;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    @include transition;
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: transparent;
+      border-color: $primary-color;
+      color: $text-color;
+    }
+  }
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1 + 0.1}s;
+    }
+  }
+}
+
+// Анимация появления карточек
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Стили отзывов
+.reviews {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.reviews-title {
+  font-size: 2.5rem;
+  color: $text-color;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.reviews-sub {
+  color: $secondary-text-color;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+// Стили слайдера
+.slider-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+// Стили карточек отзывов
+.review-card {
+  background-color: $white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba($black, 0.1);
+  @include transition;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCard 0.5s ease forwards;
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1 + 0.1}s;
+    }
+  }
+
+  .stars {
+    color: $primary-color;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: $secondary-text-color;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info {
+      flex-grow: 1;
+    }
+
+    h4 {
+      color: $text-color;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    span {
+      color: $secondary-text-color;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Стили точек слайдера
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  @include transition;
+
+  &.active {
+    background-color: $primary-color;
+  }
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Стили подвала
+.footer-bottom {
+  background-color: #2c3e50;
+  padding: 50px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  color: $white;
+}
+
+.footer-info {
+  logo {
+    color: $white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  p {
+    color: #bdc3c7;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+}
+
+.footer-contacts {
+  h3 {
+    color: $white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: #bdc3c7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.footer-social {
+  h3 {
+    color: $white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+
+  a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba($white, 0.1);
+    color: $white;
+    @include flex-center;
+    @include transition;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $primary-color;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+// Анимация подпрыгивания
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.copyright {
+  text-align: center;
+  color: #bdc3c7;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba($white, 0.1);
+  font-size: 0.9rem;
+}
+
+// Кнопка прокрутки вверх
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: $primary-color;
+  border-radius: 50%;
+  @include flex-center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+  z-index: 1000;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    transform: translateY(-3px);
+  }
+
+  &::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid $text-color;
+    border-left: 3px solid $text-color;
+    transform: rotate(45deg);
+    margin-top: 4px;
+  }
+}
+
+// Медиа-запросы
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background-color: rgba($black, 0.95);
+    flex-direction: column;
+    padding: 80px 40px;
+    @include transition;
+    z-index: 999;
+
+    &.active {
+      right: 0;
+    }
+
+    a {
+      font-size: 20px;
+      padding: 15px 0;
+      width: 100%;
+      text-align: center;
+
+      &.active {
+        background-color: rgba($primary-color, 0.1);
+      }
+
+      &:hover {
+        background-color: rgba($primary-color, 0.1);
+      }
+    }
+  }
+
+  .header-content {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .slide {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+
+    &::before {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .offer-card {
+    margin: 0 10px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-info,
+  .footer-contacts,
+  .footer-social {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+} 

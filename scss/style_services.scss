@@ -1,0 +1,602 @@
+// Импорт шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap');
+
+// Переменные
+$primary-color: #FFD700;
+$secondary-color: #3498db;
+$text-color: #2c3e50;
+$secondary-text-color: #7f8c8d;
+$white: #fff;
+$black: #2c3e50;
+$background-color: #F1EAEA;
+
+// Миксины
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property: all) {
+  transition: $property 0.3s ease;
+}
+
+// Базовые стили
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: $background-color;
+}
+
+// Стили навигации
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .logo {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: $white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include transition;
+    transform-origin: left center;
+
+    &:hover {
+      color: $primary-color;
+      transform: scale(1.05);
+
+      .house-icon {
+        color: $primary-color;
+        transform: rotate(-10deg);
+      }
+    }
+  }
+
+  .house-icon {
+    width: 45px;
+    height: 45px;
+    color: $white;
+    @include transition;
+    transform-origin: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+
+    a {
+      color: $white;
+      text-decoration: none;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateX(20px);
+      animation: fadeInLink 0.5s ease forwards;
+      position: relative;
+      padding-bottom: 5px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $primary-color;
+        @include transition(width);
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $primary-color;
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &.active {
+        color: $primary-color;
+        font-weight: bold;
+
+        &::after {
+          width: 100%;
+          background-color: $primary-color;
+        }
+      }
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.1}s;
+        }
+      }
+    }
+  }
+}
+
+// Анимация появления ссылок
+@keyframes fadeInLink {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Стили бургер-меню
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+  position: relative;
+
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: $primary-color;
+    border-radius: 3px;
+    @include transition;
+    transform-origin: center;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+
+  &:hover span {
+    background-color: $white;
+  }
+}
+
+// Стили шапки
+header {
+  background-image: url('images/services-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+  color: $white;
+
+  .header-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: $primary-color;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $white;
+    }
+  }
+}
+
+// Стили секции услуг
+.services-section {
+  padding: 80px 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: $text-color;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  .section-description {
+    color: $secondary-text-color;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+  }
+}
+
+// Стили сетки услуг
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+
+  .service-card {
+    background: $white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .img_1 {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: $text-color;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: $secondary-text-color;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .service-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: $secondary-color;
+      color: $white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+// Стили секции процесса
+.process-section {
+  margin-top: 80px;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+
+    .process-step {
+      text-align: center;
+      padding: 20px;
+
+      h3 {
+        color: $text-color;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      p {
+        color: $secondary-text-color;
+      }
+    }
+  }
+}
+
+// Стили секции призыва к действию
+.cta-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px;
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 2rem;
+    color: $text-color;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: $secondary-text-color;
+    margin-bottom: 30px;
+  }
+
+  .offer-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: $secondary-color;
+    color: $white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($secondary-color, 10%);
+    }
+  }
+}
+
+// Стили подвала
+.footer-bottom {
+  background-color: $black;
+  color: $white;
+  padding: 50px 0 20px;
+  margin-top: 80px;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .footer-info,
+    .footer-contacts,
+    .footer-social {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+    }
+
+    .footer-info {
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: $primary-color;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #ecf0f1;
+      }
+    }
+
+    .footer-contacts,
+    .footer-social {
+      h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: $primary-color;
+      }
+    }
+
+    .footer-contacts p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #ecf0f1;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: left;
+
+      a {
+        color: $white;
+        background-color: #34495e;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $secondary-color;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: #bdc3c7;
+    max-width: 1200px;
+    margin: 30px auto 0;
+  }
+}
+
+// Кнопка прокрутки вверх
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: $primary-color;
+  border-radius: 50%;
+  @include flex-center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+  z-index: 1000;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    transform: translateY(-3px);
+  }
+
+  &::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid $text-color;
+    border-left: 3px solid $text-color;
+    transform: rotate(45deg);
+    margin-top: 4px;
+  }
+}
+
+// Медиа-запросы
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+
+    .burger-menu {
+      display: flex;
+      order: 2;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: rgba($black, 0.95);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      transition: right 0.5s ease;
+      z-index: 999;
+
+      &.active {
+        right: 0;
+      }
+
+      a {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+
+        &.active {
+          background-color: #0056b3;
+          border-bottom: 2px solid $white;
+          font-weight: bold;
+        }
+
+        &:hover {
+          background-color: rgba($primary-color, 0.2);
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  .header-content {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 15px;
+
+    .logo {
+      font-size: 20px;
+    }
+
+    .house-icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .header-content {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .footer-info,
+    .footer-contacts,
+    .footer-social {
+      max-width: 100%;
+    }
+
+    .social-icons {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 1920px) {
+  .service-button {
+    margin-top: 10px;
+  }
+} 

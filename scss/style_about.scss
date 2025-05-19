@@ -1,0 +1,583 @@
+// Переменные
+$primary-color: #FFD700;
+$text-color: #2c3e50;
+$secondary-text-color: #7f8c8d;
+$white: #fff;
+$black: #000;
+$background-color: #F1EAEA;
+
+// Миксины
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin transition($property: all) {
+    transition: $property 0.3s ease;
+}
+
+// Reset and Base Styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:  sans-serif;
+    background-color: $background-color;
+}
+
+// Navbar Styles
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba($black, 0.6);
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    .logo {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: $white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @include transition;
+        transform-origin: left center;
+
+        &:hover {
+            color: $primary-color;
+            transform: scale(1.05);
+
+            .house-icon {
+                color: $primary-color;
+                transform: rotate(-10deg);
+            }
+        }
+    }
+
+    .house-icon {
+        width: 45px;
+        height: 45px;
+        color: $white;
+        @include transition;
+        transform-origin: center;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            font-size: 18px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: fadeInLink 0.5s ease forwards;
+            position: relative;
+            padding-bottom: 5px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: $primary-color;
+                @include transition(width);
+            }
+
+            &:hover {
+                text-decoration: none;
+                color: $primary-color;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            &.active {
+                color: $primary-color;
+                font-weight: bold;
+
+                &::after {
+                    width: 100%;
+                    background-color: $primary-color;
+                }
+            }
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.1}s;
+                }
+            }
+        }
+    }
+}
+
+// Анимация появления ссылок
+@keyframes fadeInLink {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Burger Menu Styles
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+    position: relative;
+
+    span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: $primary-color;
+        border-radius: 3px;
+        @include transition;
+        transform-origin: center;
+    }
+
+    &.active {
+        span {
+            &:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+    }
+
+    &:hover span {
+        background-color: $white;
+    }
+}
+
+// Header Styles
+header {
+    background-image: url('images/o_kompanii.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 920px;
+    background-repeat: no-repeat;
+    color: $white;
+    position: relative;
+    overflow: hidden;
+
+    .header-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: $primary-color;
+            text-shadow: 2px 2px 4px rgba($black, 0.5);
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ecf0f1;
+        }
+    }
+}
+
+// About Section
+.about-section {
+    padding: 80px 0;
+    background-color: $background-color;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        color: $text-color;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .section-description {
+        color: $secondary-text-color;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+        font-size: 1.1rem;
+    }
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .about-text {
+        flex: 1;
+
+        h3 {
+            font-size: 1.8rem;
+            color: $text-color;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: $secondary-text-color;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 20px;
+
+            li {
+                margin-bottom: 10px;
+                color: $secondary-text-color;
+                padding-left: 20px;
+                position: relative;
+
+                &:before {
+                    content: "•";
+                    color: $primary-color;
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    .about-image {
+        flex: 1;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba($black, 0.1);
+        }
+    }
+}
+
+// CTA Section
+.cta-section {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background: $white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba($black, 0.1);
+
+    h3 {
+        font-size: 2rem;
+        color: $text-color;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: $secondary-text-color;
+        margin-bottom: 30px;
+    }
+
+    .offer-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background: $primary-color;
+        color: $text-color;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        @include transition;
+
+        &:hover {
+            background: darken($primary-color, 10%);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+// Footer Styles
+.footer-bottom {
+    background-color: $text-color;
+    color: $white;
+    padding: 50px 0 20px;
+    margin-top: 80px;
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        .footer-info,
+        .footer-contacts,
+        .footer-social {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .footer-info {
+            .logo {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: $primary-color;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #ecf0f1;
+            }
+        }
+
+        .footer-contacts,
+        .footer-social {
+            h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+                color: $primary-color;
+            }
+        }
+
+        .footer-contacts p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #ecf0f1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: left;
+
+            a {
+                color: $white;
+                background-color: #34495e;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                @include flex-center;
+                @include transition;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $primary-color;
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba($white, 0.1);
+        font-size: 14px;
+        color: #bdc3c7;
+        max-width: 1200px;
+        margin: 30px auto 0;
+    }
+}
+
+// Scroll to Top Button
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    @include flex-center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    @include transition;
+    z-index: 1000;
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+        transform: translateY(-3px);
+    }
+
+    &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border-top: 3px solid $text-color;
+        border-left: 3px solid $text-color;
+        transform: rotate(45deg);
+        margin-top: 4px;
+    }
+}
+
+// Media Queries
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+
+        .burger-menu {
+            display: flex;
+            order: 2;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: rgba($text-color, 0.95);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transition: right 0.5s ease;
+            z-index: 999;
+
+            &.active {
+                right: 0;
+            }
+
+            a {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                border-radius: 5px;
+                @include transition;
+
+                &.active {
+                    background-color: #0056b3;
+                    border-bottom: 2px solid $white;
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    background-color: rgba($primary-color, 0.2);
+                    transform: translateX(5px);
+                }
+            }
+        }
+    }
+
+    .header-content {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .about-content {
+        flex-direction: column;
+
+        &.reverse {
+            flex-direction: column;
+        }
+
+        .about-image img {
+            margin-bottom: 20px;
+        }
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+
+        &::before {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px;
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .house-icon {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .footer-info,
+        .footer-contacts,
+        .footer-social {
+            max-width: 100%;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+    }
+} 

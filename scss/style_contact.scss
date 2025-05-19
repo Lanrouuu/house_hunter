@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap');
+
+// Переменные
+$primary-color: #FFD700;
+$secondary-color: #3498db;
+$text-color: #2c3e50;
+$secondary-text-color: #7f8c8d;
+$background-color: #F1EAEA;
+$white: #fff;
+$black: #2c3e50;
+
+// Сброс и базовые стили
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat Alternates', sans-serif;
+    background-color: $background-color;
+}
+
+// Стили навигации
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    .logo {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: $white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        transform-origin: left center;
+
+        &:hover {
+            color: $primary-color;
+            transform: scale(1.05);
+
+            .house-icon {
+                color: $primary-color;
+                transform: rotate(-10deg);
+            }
+        }
+    }
+
+    .house-icon {
+        width: 45px;
+        height: 45px;
+        color: $white;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            font-size: 18px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: fadeInLink 0.5s ease forwards;
+            position: relative;
+            padding-bottom: 5px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: $primary-color;
+                transition: width 0.3s ease;
+            }
+
+            &:hover {
+                text-decoration: none;
+                color: $primary-color;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            &.active {
+                color: $primary-color;
+                font-weight: bold;
+
+                &::after {
+                    width: 100%;
+                    background-color: $primary-color;
+                }
+            }
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.1}s;
+                }
+            }
+        }
+    }
+}
+
+// Секция контактов
+.contact-section {
+    padding: 120px 0 80px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+        font-size: 2.5rem;
+        color: $text-color;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    p {
+        color: $secondary-text-color;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+}
+
+// Форма контактов
+.contact-form {
+    background: $white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+
+        label {
+            display: block;
+            font-size: 1rem;
+            color: $text-color;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: $text-color;
+            transition: border-color 0.3s ease;
+            font-family: 'Montserrat Alternates', sans-serif;
+
+            &:focus {
+                border-color: $secondary-color;
+                outline: none;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+    }
+
+    .submit-button {
+        background: $secondary-color;
+        color: $white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: darken($secondary-color, 10%);
+        }
+    }
+}
+
+// Стили подвала
+.footer-bottom {
+    background-color: $black;
+    color: $white;
+    padding: 50px 0 20px;
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        .footer-info,
+        .footer-contacts,
+        .footer-social {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .footer-info {
+            .logo {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: $primary-color;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #ecf0f1;
+            }
+        }
+
+        .footer-contacts,
+        .footer-social {
+            h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+                color: $primary-color;
+            }
+        }
+
+        .footer-contacts p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #ecf0f1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: left;
+
+            a {
+                color: $white;
+                background-color: #34495e;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $secondary-color;
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        color: #bdc3c7;
+        max-width: 1200px;
+        margin: 30px auto 0;
+    }
+}
+
+// Медиа-запросы
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+
+        .burger-menu {
+            display: flex;
+            order: 2;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: rgba($black, 0.95);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transition: right 0.5s ease;
+            z-index: 999;
+
+            &.active {
+                right: 0;
+            }
+
+            a {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+
+                &.active {
+                    background-color: #0056b3;
+                    border-bottom: 2px solid $white;
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    background-color: rgba($primary-color, 0.2);
+                    transform: translateX(5px);
+                }
+            }
+        }
+    }
+
+    .contact-section {
+        padding: 100px 20px 60px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px;
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .house-icon {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .contact-section h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .footer-info,
+        .footer-contacts,
+        .footer-social {
+            max-width: 100%;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+    }
+} 
